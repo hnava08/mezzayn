@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Al-mezzayn</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header class="bar">
+    <p class="mark"><svg viewBox="0 0 160 160" aria-hidden="true"><path fill="#9b1d2e" d="M0 0 H40 L80 40 L120 0 H160 V160 H120 V80 L80 120 L40 80 V160 H0 Z"/></svg>Al-mezzayn</p>
+    <nav id="tools" hidden>
+      <button type="button" id="csv">Export CSV</button>
+      <button type="button" id="pdf">Export PDF</button>
+      <button type="button" id="alerts" class="quiet">Allow alerts</button>
+      <button type="button" id="leave" class="quiet">Leave</button>
+    </nav>
+  </header>
+  <main class="wrap">
+    <section class="card gate" id="gate">
+      <h1>Owner desk</h1>
+      <p class="hint">Sign in with the owner account. Customers and staff use the phone.</p>
+      <form id="login">
+        <label>Name
+          <input name="name" required autocomplete="username" placeholder="Name">
+        </label>
+        <label>Password
+          <input name="password" type="password" required autocomplete="current-password" placeholder="At least 8 characters" minlength="8">
+        </label>
+        <button type="submit">Sign in</button>
+      </form>
+      <h2>Create an account</h2>
+      <p class="hint">Customer, staff, or owner. The password stays on the server as a hash.</p>
+      <form id="register">
+        <label>Name
+          <input name="name" required autocomplete="off" placeholder="Name">
+        </label>
+        <label>Password
+          <input name="password" type="password" required minlength="8" placeholder="At least 8 characters">
+        </label>
+        <label>Role
+          <select name="role" required>
+            <option value="customer">Customer</option>
+            <option value="staff">Staff</option>
+            <option value="owner">Owner</option>
+          </select>
+        </label>
+        <button type="submit">Create account</button>
+      </form>
+      <p class="status" id="auth-status" hidden></p>
+    </section>
+    <div id="desk" hidden>
+      <h1>Today</h1>
+      <p class="day" id="day"></p>
+      <p class="hint">Sales are the sum of chairs that are still booked.</p>
+      <section class="stats" id="totals"></section>
+      <div class="layout">
+        <section class="card">
+          <h2>Schedule</h2>
+          <p class="hint">Move a chair to another open time, or cancel it.</p>
+          <ul id="list"></ul>
+        </section>
+        <div class="side">
+          <section class="card">
+            <h2>Hours</h2>
+            <p class="hint">The open times on the phone follow this window.</p>
+            <form id="hours">
+              <label>Opens
+                <select name="open" required></select>
+              </label>
+              <label>Closes
+                <select name="close" required></select>
+              </label>
+              <button type="submit">Save hours</button>
+            </form>
+            <p class="status" id="hours-status" hidden></p>
+          </section>
+          <section class="card">
+            <h2>Chairs</h2>
+            <p class="hint">The next open time on each chair.</p>
+            <ul id="seats"></ul>
+          </section>
+          <section class="card">
+            <h2>Walk-in</h2>
+            <p class="hint">A chair, an open time, a service, and the customer's name.</p>
+            <form id="reserve">
+              <label>Customer
+                <input name="customer" required placeholder="Name" autocomplete="name">
+              </label>
+              <label>Chair
+                <select name="seat" required></select>
+              </label>
+              <label>Time
+                <select name="slot" required></select>
+              </label>
+              <label>Service
+                <select name="service" required></select>
+              </label>
+              <button type="submit">Reserve</button>
+            </form>
+            <p class="status" id="reserve-status" hidden></p>
+          </section>
+          <section class="card">
+            <h2>Add a chair</h2>
+            <p class="hint">Name the chair and the barber who works it.</p>
+            <form id="seat">
+              <label>Chair
+                <input name="name" required placeholder="Seat 3" autocomplete="off">
+              </label>
+              <label>Barber
+                <input name="barber" required placeholder="Barber 3" autocomplete="off">
+              </label>
+              <button type="submit">Add chair</button>
+            </form>
+            <p class="status" id="status" hidden></p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="desk.js"></script>
+</body>
+</html>

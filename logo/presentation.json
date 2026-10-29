@@ -1,0 +1,28 @@
+{
+  "brand": "Al-mezzayn",
+  "tagline": "Book a chair",
+  "brief": "One barbershop. Customers book a chair. Staff see the same day. The owner watches the totals.",
+  "adjectives": ["sharp", "quiet"],
+  "industry": "consumer-app",
+  "nav": ["Today", "Chairs", "Export"],
+  "brand_color": "#9B1D2E",
+  "greyscale": false,
+  "final": true,
+  "concepts": [
+    {
+      "name": "Letterform M",
+      "symbol": "kit/symbol.svg",
+      "lockup": "kit/lockup-horizontal.svg",
+      "stacked": "kit/lockup-stacked.svg",
+      "avatar": "kit/export/symbol-app-icon.svg",
+      "symbol_on_tile": "kit/export/symbol-app-icon.svg",
+      "idea": "The M is two posts and the open chair between them.",
+      "rationale": [
+        "It holds at 16 px as an app icon",
+        "One colour, black or white",
+        "No scissors, pole or mustache"
+      ]
+    }
+  ],
+  "recommendation": "The letterform M is the mark."
+}
